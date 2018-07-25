@@ -1,0 +1,34 @@
+[Features]
+Phase 1:
+-Workset list (CRUD)
+-Unit Test (testable architecture!)
+-UI
+
+Phase 2:
+-TemplateSet list (CRUD)
+
+TODO:
+-При нажатии кнопки Add загружается новая странца на ней можно добавлять элименты в Workset
+
+[info]
+1-как загружается страница appointmentDetail
+-в appointmentController вызывается метод generateAppointmentView
+-в котором собирается разметка в templateHtml
+-а затем вызывается такой код
+$.ajax({
+    url: 'views/vwAppointment.html',
+    dataType: 'html',
+    success: function (html) {
+        var returnHtml = html.replace('{{pageTitle}}', getAppointmentTitle(calendarItem)).replace('{{pageContent}}', templateHtml);
+        vwSchedule.router.load({
+            content: returnHtml,
+            reload: isReload ? true : false
+        });
+        resolve();
+    }
+});
+-значит:
+ -должен быть шаблон views/vwAppointment.html
+ -и должна быть зарегестрированна view vwSchedule
+
+ -vwSchedule главная view находится в index.html
