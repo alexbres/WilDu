@@ -13,7 +13,8 @@ var app = new Framework7({
   routes: [
     {
       path: '/about/',
-      url: 'about.html',
+      url: './pages/about.html',
+      name: 'about',
     },
   ],
   // ... other parameters
