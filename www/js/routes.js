@@ -1,14 +1,17 @@
 var routes = [
-  // Index page
   {
     path: '/',
     url: './index.html',
-    name: 'home',
-  },
-  // About page
+    name: 'home'
+  }, 
   {
     path: '/about/',
     url: './pages/about.html',
-    name: 'about',
+    name: 'about'
+  }, 
+  {
+    path: '/worksetEdit/',
+    url: './pages/worksetEdit.html',
+    name: 'worksetEdit'
   }
 ]

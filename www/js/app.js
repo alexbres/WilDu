@@ -9,7 +9,6 @@ var app = new Framework7({
   panel: {
     swipe: 'left',
   },
-  // Add default routes
   routes:  routes,
   // ... other parameters
 });
