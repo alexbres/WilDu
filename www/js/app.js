@@ -10,13 +10,7 @@ var app = new Framework7({
     swipe: 'left',
   },
   // Add default routes
-  routes: [
-    {
-      path: '/about/',
-      url: './pages/about.html',
-      name: 'about',
-    },
-  ],
+  routes:  routes,
   // ... other parameters
 });
 
