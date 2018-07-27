@@ -21,6 +21,8 @@ $$(document).on('page:init', '.page[data-name="worksetEdit"]', function (e) {
   initWorksetEdit();
 })
 
+var workItems = [];
+
 function initWorksetEdit() {
   var addWorkItem = new Vue({
     el: '#addWorkItem',
@@ -30,7 +32,20 @@ function initWorksetEdit() {
     methods: {
       add: function () {
         console.log(this.name);
+        workItems.push(this.name);
+        workItems.forEach(function(w) {
+          console.log(w);
+        })
       }
+    }
+  });
+
+  var workItemList = new Vue({
+    el: '#workItemList',
+    data: {
+      items: workItems
+    },
+    methods: {
     }
   });
 }
