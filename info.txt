@@ -41,5 +41,5 @@ $.ajax({
 
 
  TODO:
- -установить RequireJs через npm
+ +-установить RequireJs через npm
  -загружать  routes.js через RequireJS

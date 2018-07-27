@@ -1,4 +1,4 @@
-<div class="page">
+<div data-name="worksetEdit" class="page">
   <div class="navbar">
     <div class="navbar-inner sliding">
       <div class="left">
@@ -7,13 +7,67 @@
           <span class="ios-only">Back</span>
         </a>
       </div>
-      <div class="title">About Framework7</div>
+      <div class="title">Edit workset</div>
     </div>
   </div>
   <div class="page-content">
     <div class="block-title">Edit workset</div>
     <div class="block block-strong">
-      <p>TODO</p>
+
+      <div class="list" id="addWorkItem">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Task name</div>
+                <div class="item-input-wrap">
+                  <input type="text" v-model="name" placeholder="Task name">
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="block block-strong row">
+          <div class="col">
+            <a class="button convert-form-to-data" href="#" v-on:click="add">Add</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="list">
+        <ul>
+          <li>
+            <div class="item-content">
+              <div class="item-media">
+                <i class="icon my-icon"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">
+                  List element title
+                </div>
+                <div class="item-after">
+                  List element label
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media">
+                <i class="icon my-icon"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">
+                  List element title
+                </div>
+                <div class="item-after">
+                  List element label
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

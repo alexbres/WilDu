@@ -1,3 +1,4 @@
+var $$ = Dom7;
 var app = new Framework7({
   // App root element
   root: '#app',
@@ -9,8 +10,27 @@ var app = new Framework7({
   panel: {
     swipe: 'left',
   },
-  routes:  routes,
+  routes: routes,
   // ... other parameters
 });
 
 var mainView = app.views.create('.view-main');
+
+$$(document).on('page:init', '.page[data-name="worksetEdit"]', function (e) {
+  console.log('worksetEdit init');
+  initWorksetEdit();
+})
+
+function initWorksetEdit() {
+  var addWorkItem = new Vue({
+    el: '#addWorkItem',
+    data: {
+      name: '123'
+    },
+    methods: {
+      add: function () {
+        console.log(this.name);
+      }
+    }
+  });
+}
