@@ -26,9 +26,9 @@ define(['routes'], function (routes) {
 
   function initWorksetEdit() {
     var addWorkItem = new Vue({
-      el: '#addWorkItem',
+      el: '#vAddWorkItem',
       data: {
-        name: '123'
+        name: ''
       },
       methods: {
         add: function () {

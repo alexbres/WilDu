@@ -42,4 +42,9 @@ $.ajax({
 
  TODO:
  +-установить RequireJs через npm
- -загружать  routes.js через RequireJS
+ +-загружать  routes.js через RequireJS
+ -загружать libs через require
+
+ -улучшить layout edit Workset
+  -удалить лишние элементы
+  -оставлять поле ввода пустым
