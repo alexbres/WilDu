@@ -37,6 +37,9 @@ define(['routes'], function (routes) {
           workItems.forEach(function (w) {
             console.log(w);
           })
+        },
+        clear: function () {
+          this.name = '';
         }
       }
     });
