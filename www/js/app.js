@@ -1,4 +1,4 @@
-define(['routes'], function (routes) {
+define(['routes', 'database'], function (routes, database) {
   var $$ = Dom7;
   var app = new Framework7({
     // App root element
@@ -36,7 +36,8 @@ define(['routes'], function (routes) {
           workItems.push(this.name);
           workItems.forEach(function (w) {
             console.log(w);
-          })
+          });
+          database.addTask({ name: this.name });
         },
         clear: function () {
           this.name = '';
