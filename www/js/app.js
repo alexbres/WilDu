@@ -25,11 +25,7 @@ define(['routes', 'database'], function (routes, database) {
   var workItems = [];
 
   function initWorksetEdit() {
-    
-    //database.getTasks((tasks) => workItems = tasks);
     database.getTasks(function(tasks) {
-      //Object.assign(workItems, tasks);
-      //workItems = new Array();
       workItems.splice(0, workItems.length);
       tasks.forEach(t => {
         workItems.push(t);

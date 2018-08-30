@@ -73,7 +73,6 @@ define(()=>{
       .objectStore("task")
       .delete(id);
     request.onsuccess = function (event) {
-      // It's gone!
       console.log('deleted: ' + id);
     };
   }
