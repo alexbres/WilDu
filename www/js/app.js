@@ -25,6 +25,17 @@ define(['routes', 'database'], function (routes, database) {
   var workItems = [];
 
   function initWorksetEdit() {
+    
+    //database.getTasks((tasks) => workItems = tasks);
+    database.getTasks(function(tasks) {
+      //Object.assign(workItems, tasks);
+      //workItems = new Array();
+      workItems.splice(0, workItems.length);
+      tasks.forEach(t => {
+        workItems.push(t);
+      });
+    });
+
     var addWorkItem = new Vue({
       el: '#vAddWorkItem',
       data: {
@@ -32,12 +43,12 @@ define(['routes', 'database'], function (routes, database) {
       },
       methods: {
         add: function () {
+          var task = { name: this.name };
           console.log(this.name);
-          workItems.push(this.name);
-          workItems.forEach(function (w) {
-            console.log(w);
+          database.addTask(task, (id) => {
+            task.id = id;
+            workItems.push(task);
           });
-          database.addTask({ name: this.name });
         },
         clear: function () {
           this.name = '';
@@ -51,6 +62,12 @@ define(['routes', 'database'], function (routes, database) {
         items: workItems
       },
       methods: {
+        remove: function(item) {
+          console.log('delete: ' + item.name);
+          console.log(this.items.indexOf(item));
+          this.items.splice(this.items.indexOf(item),1);
+          database.removeTask(item.id);
+        },
       }
     });
   }

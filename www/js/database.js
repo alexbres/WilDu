@@ -29,7 +29,7 @@ define(()=>{
     objectStore.createIndex("name", "name", { unique: false });
     };
 
-  function addTask(task) {
+  function addTask(task, cb) {
     var transaction = db.transaction(["task"], "readwrite");
 
     transaction.oncomplete = function (event) {
@@ -43,10 +43,44 @@ define(()=>{
     var objectStore = transaction.objectStore("task");
     var request = objectStore.add(task);
     request.onsuccess = function (event) {
-      console.log('data was added');
+      console.log('data was added: ' + event.target.result);
+      if (cb) {
+        cb(event.target.result);
+      }
     }
   }
+
+  function getTasks(cb){
+    var tasks = new Array();
+    var objectStore = db.transaction("task").objectStore("task");
+
+    objectStore.openCursor().onsuccess = function(event) {
+      var cursor = event.target.result;
+      if (cursor) {
+        tasks.push(cursor.value);
+        console.log("Name for id " + cursor.key + " is " + cursor.value.name);
+        cursor.continue();
+      }
+      else {
+        cb(tasks);
+        console.log("No more entries!");
+      }
+    };
+  }
+
+  function removeTask(id){
+    var request = db.transaction(["task"], "readwrite")
+      .objectStore("task")
+      .delete(id);
+    request.onsuccess = function (event) {
+      // It's gone!
+      console.log('deleted: ' + id);
+    };
+  }
+
   return {
     addTask: addTask,
+    getTasks: getTasks,
+    removeTask: removeTask,
   }
 });
