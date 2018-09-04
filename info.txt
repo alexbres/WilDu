@@ -1,4 +1,4 @@
-[Features]
+﻿[Features]
 Phase 1:
 -Workset list (CRUD)
 -Unit Test (testable architecture!)
@@ -50,3 +50,6 @@ $.ajax({
   +-оставлять поле ввода пустым
   -дизайблить кнопку если там пусто
   -очищать поле аосле добавления
+
+[vuex]
+https://vuex.vuejs.org/ru/guide/
