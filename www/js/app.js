@@ -1,4 +1,4 @@
-define(['routes', 'database', 'model/workItem'], function (routes, database, workItem) {
+define(['routes', 'model/workItem'], function (routes, workItem) {
   var $$ = Dom7;
   var app = new Framework7({
     // App root element
@@ -26,12 +26,7 @@ define(['routes', 'database', 'model/workItem'], function (routes, database, wor
   var workItems = workItem.items;
 
   function initWorksetEdit() {
-    database.getTasks(function(tasks) {
-      workItems.splice(0, workItems.length);
-      tasks.forEach(t => {
-        workItems.push(t);
-      });
-    });
+    workItem.load();
 
     var addWorkItem = new Vue({
       el: '#vAddWorkItem',

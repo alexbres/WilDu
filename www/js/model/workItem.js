@@ -13,10 +13,20 @@ define(['database'], (database) => {
     database.removeTask(item.id);
   }
 
+  var load = function() {
+    database.getTasks(function(tasks) {
+      _items.splice(0, _items.length);
+      tasks.forEach(t => {
+        _items.push(t);
+      });
+    });
+  }
+
   //TODO: test it
   return {
     items: _items,
     add: add,
-    remove: remove
+    remove: remove,
+    load: load
   }
 });
