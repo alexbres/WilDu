@@ -22,9 +22,6 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
     initWorksetEdit();
   })
 
-  //TODO: dont use it
-  var workItems = workItem.items;
-
   function initWorksetEdit() {
     workItem.load();
 
@@ -46,7 +43,7 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
     var workItemList = new Vue({
       el: '#workItemList',
       data: {
-        items: workItems
+        items: workItem.items
       },
       methods: {
         remove: function(item) {
