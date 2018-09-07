@@ -56,8 +56,6 @@ define(['routes', 'database', 'model/workItem'], function (routes, database, wor
       methods: {
         remove: function(item) {
           workItem.remove(item);
-          //TODO: move calling database to the store
-          database.removeTask(item.id);
         },
       }
     });

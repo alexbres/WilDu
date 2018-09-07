@@ -10,6 +10,7 @@ define(['database'], (database) => {
 
   var remove = function(item) {
     _items.splice(_items.indexOf(item),1);
+    database.removeTask(item.id);
   }
 
   //TODO: test it
