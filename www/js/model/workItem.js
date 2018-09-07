@@ -6,10 +6,16 @@ define(['database'], (database) => {
       item.id = id;
       _items.push(item);
     });
+  };
+
+  var remove = function(item) {
+    _items.splice(_items.indexOf(item),1);
   }
 
+  //TODO: test it
   return {
     items: _items,
-    add: add
+    add: add,
+    remove: remove
   }
 });

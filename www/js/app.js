@@ -55,10 +55,7 @@ define(['routes', 'database', 'model/workItem'], function (routes, database, wor
       },
       methods: {
         remove: function(item) {
-          console.log('delete: ' + item.name);
-          console.log(this.items.indexOf(item));
-          //TODO: splice frm workItems in store
-          this.items.splice(this.items.indexOf(item),1);
+          workItem.remove(item);
           //TODO: move calling database to the store
           database.removeTask(item.id);
         },
