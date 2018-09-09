@@ -43,7 +43,10 @@
                   {{ item.name }}
                 </div>
                 <div class="item-after"></div>
-                  <div class="item-after"> <a href="#" v-on:click="remove(item)"><span class="badge">X</span></a></div>
+                  <div class="item-after"> 
+                    <a href="#" v-on:click="remove(item)"><i class="f7-icons">compose</i></a>
+                    <a href="#" v-on:click="remove(item)"><i class="f7-icons">trash</i></a>
+                  </div>
                 </div>
               </div>
             </div>

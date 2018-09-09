@@ -25,6 +25,8 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
   function initWorksetEdit() {
     workItem.load();
 
+    //TODO: move to a separate module
+    //TODO: test, https://ru.vuejs.org/v2/guide/unit-testing.html
     var addWorkItem = new Vue({
       el: '#vAddWorkItem',
       data: {
@@ -40,6 +42,7 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
       }
     });
 
+    //TODO: move to a separate module
     var workItemList = new Vue({
       el: '#workItemList',
       data: {
