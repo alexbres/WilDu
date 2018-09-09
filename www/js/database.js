@@ -68,6 +68,14 @@ define(()=>{
     };
   }
 
+  function getTask(id, cb){
+    db.transaction("task").objectStore("task").get(id).onsuccess = function(event) {
+      if (cb) {
+        cb(event.target.result);
+      }
+    };
+  }
+
   function removeTask(id){
     var request = db.transaction(["task"], "readwrite")
       .objectStore("task")
@@ -77,9 +85,20 @@ define(()=>{
     };
   }
 
+  function updateTask(task){
+    var request = db.transaction(["task"], "readwrite")
+      .objectStore("task")
+      .put(task);
+    request.onsuccess = function (event) {
+      console.log('updated: ' + task.id);
+    };
+  }
+
   return {
     addTask: addTask,
     getTasks: getTasks,
+    getTask: getTask,
     removeTask: removeTask,
+    updateTask: updateTask
   }
 });

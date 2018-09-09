@@ -30,14 +30,22 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
     var addWorkItem = new Vue({
       el: '#vAddWorkItem',
       data: {
-        name: ''
+        name: '',
+        id: null
       },
       methods: {
         add: function () {
-          workItem.add({ name: this.name });
+          if (this.id) {
+            workItem.update({ id: this.id, name: this.name });
+            this.id = null;
+          } else {
+            workItem.add({ name: this.name });
+          }
         },
         clear: function () {
-          this.name = '';
+          if (!this.id) {
+            this.name = '';
+          }
         }
       }
     });
@@ -51,6 +59,10 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
       methods: {
         remove: function(item) {
           workItem.remove(item);
+        },
+        edit: function(item) {
+          addWorkItem.id = item.id;
+          addWorkItem.name = item.name;
         },
       }
     });
