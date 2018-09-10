@@ -54,6 +54,11 @@ $.ajax({
 [vuex]
 https://vuex.vuejs.org/ru/guide/
 
+[ServiceWorker sw-precache]
+npm install --save-dev sw-precache
+команда для генерирования ServiceWorker.js 
+node ../node_modules/sw-precache/cli.js --verbose (запускать из www)
+
 TODO:
 v1.
 +-редактирование 2h
@@ -81,3 +86,4 @@ icons:
 +compose
 close_round
 trash
+

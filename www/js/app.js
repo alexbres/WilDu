@@ -19,6 +19,7 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
 
   $$(document).on('page:init', '.page[data-name="worksetEdit"]', function (e) {
     console.log('worksetEdit init');
+    initServiceWorker();
     initWorksetEdit();
   })
 
@@ -70,5 +71,13 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
         },
       }
     });
+  }
+
+  function initServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('./service-worker.js')
+        .then(function () { console.log('[APP] Service Worker Registered'); });
+    }
   }
 });
