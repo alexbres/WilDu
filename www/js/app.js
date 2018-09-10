@@ -22,6 +22,10 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
     initWorksetEdit();
   })
 
+  $$('#workItemsList').on('click', function () {
+    app.router.navigate('/worksetEdit/');
+});
+
   function initWorksetEdit() {
     workItem.load();
 
