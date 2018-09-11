@@ -55,6 +55,26 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
       }
     });
 
+    // Fruits data demo array
+    var fruits = ('Apple Apricot Avocado Banana Melon Orange Peach Pear Pineapple').split(' ');
+    var autocompleteDropdownSimple = app.autocomplete.create({
+      inputEl: '#itemName',
+      openIn: 'dropdown',
+      source: function (query, render) {
+        var results = [];
+        if (query.length === 0) {
+          render(results);
+          return;
+        }
+        // Find matched items
+        for (var i = 0; i < fruits.length; i++) {
+          if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+        }
+        // Render items by passing array with result items
+        render(results);
+      }
+    });
+
     //TODO: move to a separate module
     var workItemList = new Vue({
       el: '#workItemList',
