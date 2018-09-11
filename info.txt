@@ -68,6 +68,10 @@ v1.
 -реализация приложения: cordova или PWA 4h
 -deploy on prod
 
+-в рамках PWA поизучать
+https://developers.google.com/speed/
+https://developers.google.com/speed/docs/insights/rules
+
 
 
 v2
