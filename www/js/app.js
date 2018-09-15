@@ -1,4 +1,4 @@
-define(['routes', 'model/workItem'], function (routes, workItem) {
+define(['routes', 'model/workItem', 'model/history'], function (routes, workItem, history) {
   var $$ = Dom7;
   var app = new Framework7({
     // App root element
@@ -29,6 +29,7 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
 
   function initWorksetEdit() {
     workItem.load();
+    history.load();
 
     //TODO: move to a separate module
     //TODO: test, https://ru.vuejs.org/v2/guide/unit-testing.html
@@ -45,7 +46,9 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
             this.id = null;
           } else {
             workItem.add({ name: this.name });
+            history.add(this.name);
           }
+          this.name = '';
         },
         clear: function () {
           if (!this.id) {
@@ -55,8 +58,7 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
       }
     });
 
-    // Fruits data demo array
-    var fruits = ('Apple Apricot Avocado Banana Melon Orange Peach Pear Pineapple').split(' ');
+    var histories = history.items;
     var autocompleteDropdownSimple = app.autocomplete.create({
       inputEl: '#itemName',
       openIn: 'dropdown',
@@ -67,8 +69,8 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
           return;
         }
         // Find matched items
-        for (var i = 0; i < fruits.length; i++) {
-          if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+        for (var i = 0; i < histories.length; i++) {
+          if (histories[i].name.toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(histories[i].name);
         }
         // Render items by passing array with result items
         render(results);
@@ -92,6 +94,8 @@ define(['routes', 'model/workItem'], function (routes, workItem) {
       }
     });
   }
+
+  
 
   function initServiceWorker() {
     if ('serviceWorker' in navigator) {
