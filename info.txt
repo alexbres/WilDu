@@ -76,16 +76,24 @@ https://developers.google.com/speed/docs/insights/rules
 
 
 v2
--кэширование списков
--зачеркивание выполненых пунктов
--очистка списка
++-кэширование списков
+-очистка списка (?)
++-Search Bar
 
 
 v3
 -кнрпки удаление/редактирование показывать в режиме редактирование списка
 -добавить тулбар
  -редактирование
- -удаление выполненых
+-зачеркивание выполненых пунктов
+ -удаление выполненых (савочек)
 
 Search Bar
 https://framework7.io/docs/searchbar.html
+
+
+
+TODO:
+-add unit tests
+-add tests Vue components
+-push to GitHub
