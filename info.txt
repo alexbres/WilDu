@@ -93,7 +93,3 @@ https://framework7.io/docs/searchbar.html
 
 
 
-TODO:
--add unit tests
--add tests Vue components
--push to GitHub
